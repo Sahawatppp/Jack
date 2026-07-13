@@ -43,3 +43,4 @@ Second-job:
    steps:
      - run: echo "This job is running on ${{ runner.os }}"
        if: ${{ runner.os == 'linux' }}
+.env
