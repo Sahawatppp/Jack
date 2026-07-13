@@ -1,13 +1,12 @@
-post https://api.github.com/repos/Sahawatppp/Jack/dispatches
+POST https://api.github.com/repos/่Sahawatppp/Jack/dispatches
 Content-Type: application/json
-Accept: application/vnd.github+json 
+Accept: application/vnd.github+json
 Authorization: Bearer {{$dotenv TOKEN}}
 
-
 {
-"event_type": "on-demand-test", 
-"client_payload": {
-"status": "completed"
+    "event_type": "on-demand-test",
+    "client_payload": {
+        "status": "completed"
+    }
 }
-
-}
+ 
