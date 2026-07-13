@@ -1,18 +1,19 @@
 name: Test Github Workflow
-on: 
+ 
+on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
 jobs:
-  hello-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests
-        run: echo "Hello World"  
- second-job:
-  runs-on: windows-latest
-  needs: hello-job
-  steps:
-    - name: Run tests
-      run: echo "This job is running on ${{ runner.os}}"
+    hello-world :
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run tests
+          run: echo "Hello World"  
+    second-job:
+      runs-on: windows-latest
+      needs: hello-world
+      steps:
+        - name: Run tests
+          run: echo "This job is running on ${{ runner.os }}"
