@@ -12,5 +12,5 @@ jobs:
           run: echo "Hello World"  
 Second-job:
   runs-on: windows-latest
-  steop:
+  steps:
     - run: echo "This job is running on ${{ runner.os}}"
