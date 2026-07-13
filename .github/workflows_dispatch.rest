@@ -1,0 +1,13 @@
+post https://api.github.com/repos/Sahawatppp/Jack/dispatches
+Content-Type: application/json
+Accept: application/vnd.github+json 
+Authorization: Bearer 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
+
+
+{
+"event_type": "on-demand-test", 
+"client_payload": {
+"status": "completed"
+}
+
+}

@@ -7,6 +7,9 @@ on:
       - ".github/workflows/*"
   pull_request:
     branches: ["main"]
+
+  repository_dispatch:
+    types: ["on-demand-test"]
 jobs:
     hello-world :
       runs-on: ubuntu-latest
@@ -19,3 +22,6 @@ jobs:
       steps:
         - name: Run tests
           run: echo "This job is running on ${{ runner.os }}"
+
+
+          # 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
