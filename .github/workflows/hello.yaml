@@ -1,9 +1,9 @@
-name : Hello 
+name : Hello
 
 on : [push, pull_request]
 
-jobs: 
-  hello-job: 
+jobs:
+  hello-job:
     runs-on: ubuntu-latest
       steps:
         - name : Run a one-line script
