@@ -3,6 +3,8 @@ name: Test Github Workflow
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - ".github/workflow/*"
   pull_request:
     branches: ["main"]
 jobs:
