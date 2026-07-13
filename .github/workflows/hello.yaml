@@ -7,9 +7,9 @@ on:
       - ".github/workflows/*"
   pull_request:
     branches: ["main"]
-
   repository_dispatch:
     types: ["on-demand-test"]
+
 jobs:
     hello-world :
       runs-on: ubuntu-latest
