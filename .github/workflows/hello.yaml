@@ -5,13 +5,14 @@ on:
   pull_request:
     branches: ["main"]
 jobs:
-  hello-job :
+  hello-job:
     runs-on: ubuntu-latest
     steps:
       - name: Run tests
-       run: echo "Hello World"  
+        run: echo "Hello World"  
  second-job:
   runs-on: windows-latest
   needs: hello-job
   steps:
-    - run: echo "This job is running on ${{ runner.os}}"
+    - name: Run tests
+      run: echo "This job is running on ${{ runner.os}}"
