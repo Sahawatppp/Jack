@@ -1,10 +1,10 @@
 name : Hello 
 
-on : [push,  pull_request]
+on : [push, pull_request]
 
 jobs: 
-hello-job: 
-  runs-on: ubuntu-latest
-    steps:
-    - name : Run a one-line script
-      run: echo "hello"
+  hello-job: 
+    runs-on: ubuntu-latest
+      steps:
+      - name : Run a one-line script
+        run: echo "hello"
