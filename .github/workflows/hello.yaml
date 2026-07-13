@@ -1,10 +1,9 @@
-name: Hello
-
+name: Test Github Workflow
+ 
 on: [push, pull_request]
-
 jobs:
-  hello-job:
-    runs-on: ubuntu-latest
+    hello-world :
+      runs-on: ubuntu-latest
       steps:
-        - name: Run a one-line script
-          run: echo "hello"
+        - name: Run tests
+          run: echo "Hello World"  
