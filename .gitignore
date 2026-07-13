@@ -1,0 +1,45 @@
+name: Hello World
+env:
+APP_NAME: "DEMO Application"
+on:
+push:
+   branches: ["main"]
+   paths-ignore:
+     - ".github/workflows/*"
+pull_request:
+   branches: ["main"]
+repository_dispatch:
+   types: ["on-demand-test"]
+jobs:
+echo-var:
+   env:
+     PACKAGE_NAME: "."
+   runs-on: ubuntu-latest
+   steps:
+     - name: Echo Github variables
+       if: ${{ runner.os == 'Linux' }}
+       env:
+         APP_VERSION: "2.34.5"
+         RUNNER_CONTEXT: ${{ toJSON(runner) }}
+       run: |
+         echo "this job trigger by ${{ github.event_name }} event"
+         echo "this repository is ${{ github.repository }}"
+         echo "this branch is ${{ github.ref_name }}"
+         echo "this commit is ${{ env.APP_NAME }} version ${{ env.APP_VERSION }}"
+         echo "$RUNNER_CONTEXT"
+         echo "the Database password is ${{ secrets.DB_PASSWORD }}"
+hello-job:
+   if: ${{ github.event.client_payload.status != 'completed' }}
+   runs-on: ubuntu-latest
+   steps:
+     - name: Run a one-line script
+       run: echo "Hello Github Actions!"
+     - name: Retrive client payload
+       run: 'echo "Client send payload status: ${{ github.event.client_payload.status }}"'
+Second-job:
+   if: ${{ github.event_name != 'repository_dispatch'}}
+   runs-on: windows-latest
+   needs: hello-job
+   steps:
+     - run: echo "This job is running on ${{ runner.os }}"
+       if: ${{ runner.os == 'linux' }}
